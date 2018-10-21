@@ -1,0 +1,108 @@
+
+
+************	Working with user policies	************
+
+
+1.  Get-ExecutionPolicy
+	Gets the execution rights for the current user, current session.
+
+2.  Set-ExecutionPolicy Unrestricted
+	Sets the execution rights for the current user.
+
+3.  Set-ExecutionPolicy Unrestricted -Scope CurrentUser
+	Sets the execution rights for the current user, current session.
+
+4.  Test-Path $profile
+	Check whether powershell profile exists or not.
+
+5.  New-Item -Path $profile -ItemType file -Force
+	Create a new item, item being PS profile, -Force to accept all possible prompts.
+
+
+************	Working with Excel Workbooks	************
+
+
+6.  $Excel = New-Object -ComObject Excel.Application
+	Create a variable named excel.
+
+7.  $Excel.Visible = $true
+	Excel Application will start.
+
+8. $Excel.DisplayAlerts = $false
+	After this command it will stop asking for confirmation messages and niether show alert messages.	
+
+9.  $Excel.Workbooks.Add() 
+	Create a workbook in excel.
+
+10.  $Excel.Workbooks
+	Displays all the properties related to workbooks.
+
+11. $Excel.Workbooks | Select-Object -ExpandProperty name
+	Filter all the properties and display only the names of the workbooks.
+
+12. $Excel.Workbooks.Item("Book4").activate()
+	Activate Book 4 from all the workbooks.
+
+13. $Excel.Workbooks.Item(2).activate()
+	Activate 2nd Item in queue.
+
+14. $Excel.Workbooks.Item((Get-Random -Minimum 1 -Maximum ($Excel.Workbooks.count+1))).activate()
+	Random number generator from 3 to 29, for 30 to be included max should be 31.
+
+15. $Excel.Workbooks.Open("D:\Users\schaube\Desktop\Waves\All Scripts.xlsx")
+	Open specific workbook.
+
+16. $Excel.Workbooks.Item("Book1").close()
+	Closes book1.
+
+17. $Excel.Workbooks.Item(1).close()
+	Closes the 1st item in queue.
+
+18. $Excel.Workbooks.Item(2).SaveAs("D:\Users\schaube\Desktop\Waves\Test.xlsx")
+	Save the 2nd item in queue to the specified location.
+
+
+************	Working with Excel Workbooks	************
+
+
+19. $Excel.Worksheets.Add()
+	Adds a sheet in the current workbook.
+
+20. $Excel.Worksheets | Select-Object -ExpandProperty  name
+	Filter all the properties and display only the names of the worksheets.
+
+21. $Excel.Worksheets.Item(1).name = "Shivam"
+	Rename the current selected worksheet to Shivam, or the first item in queue to be renamed as Shivam.
+
+22. $Excel.Worksheets.Item("Sheet2").name = "Shivam"
+	Rename the workbook named Sheet2 to Shivam.
+
+23. $Excel.Worksheets.Item(1).activate()
+	Activate the 1st item in queue i.e. worksheet.
+
+24. $Excel.Worksheets.Item("Shivam").activate()
+	Activate the worksheet named Shivam.
+
+25. $Excel.Worksheets.Item((Get-Random -Minimum 1 -Maximum ($Excel.Worksheets.Count + 1))).activate()
+	Activate worksheet based on random number generated from Get-Random function
+
+26. $Excel.Worksheets.Item(1).delete()
+	Delete the 1st worksheet in index
+
+27. $Excel.Worksheets.Item("Sheet1").delete()
+	Delete the Sheet named Sheet1
+
+28. $Excel.Workbooks.Close()
+	Closes all the running workbooks in excel application.
+
+29. $Excel.Workbooks.Item("Book6").close()
+	Closes the specified workbook, in this case Book6.
+
+30. $Excel.Workbooks.Item(1).close()
+	Closes the 1st workbook in queue or index.	
+
+31. $Age = Read-Host "Please enter your age"
+	Read Age from user
+
+32. Write-Host "Your age is : " $Age
+	write the data got from user
