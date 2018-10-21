@@ -1,0 +1,23 @@
+********************	Create / Read / Write / Delete Text file	********************
+
+
+1. New-Item "E:\PowerShell\TestText.txt"
+	Create a new text file
+
+2. "Hello World" | Set-Content "E:\PowerShell\TestText.txt"
+	Overwrite the content already present
+
+3. "Hello World again!" | Add-Content "E:\PowerShell\TestText.txt"
+	Append on a new line
+
+4. "Hello World once again!" | Out-File "E:\PowerShell\TestText.txt"
+	Overwrite the content already present
+
+5. "Hello World again!" | Out-File "E:\PowerShell\TestText.txt" -Append 
+	Append on a new line
+
+6. Get-Content "E:\PowerShell\TestText.txt"	
+	Read the contents
+
+7. Remove-Item "E:\PowerShell\TestText.txt"
+	Delete the file
